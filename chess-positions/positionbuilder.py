@@ -1,11 +1,11 @@
-from chesspiece import ChessObject, ChessPiece
+from chesspiece import CHESS_BOARD, COORDINATE, ChessPiece
 
 
 class PositionBuilder:
-    def __init__(self, coordinate: tuple[int, int], size:int, chess_board: list[list[ChessObject]]):
-        self.coordinate: tuple[int, int] = coordinate
-        self.positions: list[tuple[int, int]] = []
-        self.size: int = size
+    def __init__(self, coordinate: COORDINATE, size:int, chess_board: CHESS_BOARD):
+        self.coordinate = coordinate
+        self.positions: list[COORDINATE] = []
+        self.size = size
         self.chess_board = chess_board
 
     def __is_piece(self, x: int, y: int):
@@ -120,5 +120,5 @@ class PositionBuilder:
             self.__add_position(x + squares_x,y + squares_y)
         return self
     
-    def build(self) -> list[tuple[int, int]]:
+    def build(self) -> list[COORDINATE]:
         return self.positions
